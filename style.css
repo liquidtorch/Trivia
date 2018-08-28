@@ -1,0 +1,62 @@
+body, html {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url(./resources/red-wall-full.png);
+  height: 1000px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+
+.header {
+  background-color: #40597E;
+  /* background-color: linear-gradient(to right, #40597E 0%, #1E242F 100%) */
+  height: 4vh;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  color: white;
+  text-indent: 1em;
+  background-color: #1E242F;
+  height: 5vh;
+}
+
+
+/* .studio-image {
+  background-image: url(./resources/red-wall-full.png);
+  background-color: #cccccc;
+  height: 1000px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+} */
+
+.menu-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+
+button {
+  font-size: 30px;
+  background-color: blue;
+}
