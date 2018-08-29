@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <script defer src="script.js"></script>
+  <script defer src="scripts.js"></script>
   <link rel="stylesheet" href="style.css">
 
   <head>
@@ -12,43 +12,63 @@
   <body>
     <div class="header">
     </div>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="column">
+        <div class="col">
           <form>
-          <!-- <div class="studio-image"> -->
-            <div class="menu-text">
+            <div id="menu-content">
               <h1>Trivia</h1>
               <h3>Game Setup</h3>
-              <input type="radio" name="difficulty" value="easy" checked> Easy<br>
-              <input type="radio" name="difficulty" value="medium"> Medium<br>
-              <input type="radio" name="difficulty" value="hard"> Hard<br>
-              <button type="submit">PLAY</button>
-              <input type="reset">
+              <p>How Many Questions</p>
+              <input type="number" name="trivia_amount" id="trivia_amount" class="form-control" min="10" max="30" value="10">
+              <div name="dropdowns">
+                <label>
+                  <p>Categories:</p>
+                  <select name="Categories" id="topic">
+                    <option value="Select" disabled selected>Pick One</option>
+                    <option value="GK">General Knowledge</option>
+                    <option value="Books">Entertainment: Books</option>
+                    <option value="Movies">Entertainment: Movies</option>
+                    <option value="Music">Entertainment: Music</option>
+                    <option value="Science">Science & Nature</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Geography">Geography</option>
+                    <option value="History">History</option>
+                    <option value="Art">Art</option>
+                    <option value="Animals">Animals</option>
+                  </select>
+              </div>
+              <p>Choose Difficulty</p>
+              <div name="difficulty" id="difficulty">
+                <input type="radio" name="difficulty" value="easy" checked> Easy<br>
+                <input type="radio" name="difficulty" value="medium"> Medium<br>
+                <input type="radio" name="difficulty" value="hard"> Hard<br>
+              </div>
+              <p>Choose Question Style<p>
+              <div name="question-style" id="multi-boolean">
+                <input type="radio" name="question-style" value="multi" checked> Multiple Choice<br>
+                <input type="radio" name="question-style" value="boolean"> True or False<br>
+              </div>
+              <div name="buttons" id="buttons">
+                <button type="submit" id="playButton">PLAY</button>
+                <input type="reset" id=resetButton>
+              </div>
             </div>
-          <!-- </div> -->
           </form>
         </div>
-        <div class="column">
-          <h3>Game Console</h3>
+        <div class="col">
+          <form>
+            <div id="console-content">
+              <h1>Game Console</h1>
+              <input type="text" id="trivia_card">
+            </div>
+          </form>
         </div>
       </div>
     </div>
     <div class="footer">© 2018 LiquidTorch Media
     </div>
 
-
-
-    <!-- <div class="w3-container">
-        <div class="row">
-          <div class="column" style="background-color:#EEEEEE;">
-            <div id="background">
-              <input id="gamescreen" type="text">
-            </div>
-          </div>
-          <div class="column">
-          </div>
-        </div> -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

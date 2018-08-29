@@ -13,50 +13,69 @@ body, html {
   display: flex;
 }
 
-.column {
+.col {
+  display: flex;
   flex: 50%;
+  height: 950px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-.header {
+/* .header {
   background-color: #40597E;
   /* background-color: linear-gradient(to right, #40597E 0%, #1E242F 100%) */
-  height: 4vh;
-}
+  /* height: 4vh;
+} */
 
 .footer {
   display: flex;
   align-items: center;
   padding: 5px;
   color: white;
-  text-indent: 1em;
-  background-color: #1E242F;
+  text-indent: 4em;
+  /* background-color: #1E242F; */
   height: 5vh;
 }
 
+p {
+  font-size: 1.5em;
+}
 
-/* .studio-image {
-  background-image: url(./resources/red-wall-full.png);
-  background-color: #cccccc;
-  height: 1000px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: relative;
-} */
-
-.menu-text {
+#menu-content {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  text-align: center;
+  text-align: left;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
 
-button {
+#console-content  {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+
+#trivia_card {
+  box-sizing: content-box;
+  background-color: black;
+  width: 390px;
+  height: 720px;
+  padding: 20px;
+  border: 5px black;
+  }
+
+#buttons {
   font-size: 30px;
   background-color: blue;
 }
