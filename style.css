@@ -76,7 +76,7 @@ p {
   box-sizing: content-box;
   background-color: black;
   height: 340px;
-  width: 650px;
+  width: 655px;
   padding: 20px;
   border: 5px black;
   }
@@ -87,7 +87,7 @@ p {
 }
 
 #playButton, #resetButton {
-  background-image: linear-gradient(#EB3328 , #3F080F);
+  background-image: linear-gradient(red , #3F080F);
 }
 
 #nextButton {
