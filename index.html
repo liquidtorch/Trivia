@@ -19,11 +19,11 @@
             <div id="menu-content">
               <h1>Trivia</h1>
               <h3>Game Setup</h3>
-              <p>How Many Questions</p>
-              <input type="number" name="trivia_amount" id="trivia_amount" class="form-control" min="10" max="30" value="10">
+              <h6>*Play FULLSCREEN for best results*</h6>
+              <label><h5>How many questions in this round?</h5></label>
+              <input type="number" name="trivia-amount" id="trivia-amount" class="form-control" min="10" max="30" value="10"><br>
               <div name="dropdowns">
-                <label>
-                  <p>Categories:</p>
+                  <label><h5>Categories:</h5></label><br>
                   <select name="Categories" id="topic">
                     <option value="Select" disabled selected>Pick One</option>
                     <option value="GK">General Knowledge</option>
@@ -37,32 +37,36 @@
                     <option value="Art">Art</option>
                     <option value="Animals">Animals</option>
                   </select>
-              </div>
-              <p>Choose Difficulty</p>
+              </div><br>
+              <label><h5>Choose difficulty</h5></label>
               <div name="difficulty" id="difficulty">
                 <input type="radio" name="difficulty" value="easy" checked> Easy<br>
                 <input type="radio" name="difficulty" value="medium"> Medium<br>
                 <input type="radio" name="difficulty" value="hard"> Hard<br>
-              </div>
-              <p>Choose Question Style<p>
+              </div><br>
+              <label><h5>Choose question style</h5><label>
               <div name="question-style" id="multi-boolean">
                 <input type="radio" name="question-style" value="multi" checked> Multiple Choice<br>
                 <input type="radio" name="question-style" value="boolean"> True or False<br>
-              </div>
+              </div><br>
               <div name="buttons" id="buttons">
-                <button type="submit" id="playButton">PLAY</button>
-                <input type="reset" id=resetButton>
+                <button class="btn btn-primary" type="submit" id="playButton">PLAY</button>
+                <input class="btn btn-primary" type="reset" value="RESET" id=resetButton>
               </div>
             </div>
           </form>
         </div>
         <div class="col">
-          <form>
-            <div id="console-content">
-              <h1>Game Console</h1>
-              <input type="text" id="trivia_card">
+          <div id="console-content">
+            <h2>Game Board</h2>
+            <br>
+            <hr>
+            <div id="trivia-card">
+              <p></p>
             </div>
-          </form>
+            <button class="btn btn-primary" type="button" id="answerButton">Answer</button>
+            <button class="btn btn-primary" type="button" id="nextButton">Next Question</button>
+          </div>
         </div>
       </div>
     </div>
@@ -72,6 +76,5 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="scripts.js"></script>
   </body>
 </html>
