@@ -25,7 +25,7 @@
               <div name="dropdowns">
                   <label><h5>Categories:</h5></label><br>
                   <select name="Categories" id="topic">
-                    <option value="Select" disabled selected>Pick One</option>
+                    <option value="Select" disabled selected required>Pick One</option>
                     <option id="nine" value="9">General Knowledge</option>
                     <option id="ten" value="10">Entertainment: Books</option>
                     <option id="eleven" value="11">Entertainment: Movies</option>
@@ -50,7 +50,7 @@
                 <input id="TF" type="radio" name="question-style" value="boolean"> True or False<br>
               </div><br>
               <div name="buttons" id="buttons">
-                <button class="btn btn-primary" type="submit" id="playButton">PLAY</button>
+                <button class="btn btn-primary" type="submit"  id="playButton">PLAY</button>
                 <input class="btn btn-primary" type="reset" value="RESET" onClick="window.location.reload()" id=resetButton>
               </div>
             </div>
@@ -63,8 +63,10 @@
             <hr>
             <div id="trivia-card">
             </div>
-            <button class="btn btn-primary" type="button" id="answerButton">Answer</button>
-            <button class="btn btn-primary" type="button" id="nextButton">Next Question</button>
+            <div id="hiddenButton">
+              <button class="btn btn-primary" type="button" id="answerButton">Answer</button>
+              <button class="btn btn-primary" type="button" id="nextButton">Next Question</button>
+            </div>
           </div>
         </div>
       </div>

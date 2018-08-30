@@ -1,11 +1,14 @@
 // X - User selects game setup: #of q's, category, difficulty, question style
 // X - Reset button set page to defaults
-// X - Play button makes Get request
-  // Place trivia data into array
-  // display first card with # x/10,  question, a,b,c,d multi-choice or T/F
-// Answer button shows answer (optional: hi-lites answer among others
-// X - Next question button pulls next question from index
-  // w/answers
+// X - Play button makes Get request and display first question/answers in console
+  // (Optional): question category, #countdown, a,b,c,d multi-choice or T/F
+  // X - Place trivia data into array
+  // answerButton and nextButton only appear after start
+    // X - Toggle answerButton & nextButton
+      // X - Answer button shows correct_answer (Optional: hi-lites answer among others)
+    // X - nextButton shows next question w/possible answers
+// Create Game Over card after last question
+
 
 let baseURL = 'https://opentdb.com/api.php?'
 const triviaAmount = document.querySelector('#trivia-amount');
@@ -20,8 +23,14 @@ const medium = document.querySelector('#medium');
 const hard = document.querySelector('#hard');
 const next = document.querySelector('#nextButton');
 const answer = document.querySelector('#answerButton');
-const trivia = [];
-let count = 1;
+let hide = document.getElementById("hiddenButton");
+
+let trivia = [];
+let count = 0;
+
+function showButton() {
+
+}
 
 let formInputs = document.querySelector('#playButton');
 document.querySelector('#playButton').addEventListener('click', () => {
@@ -41,41 +50,58 @@ if(easy.checked === true) {
   difficulty = 'hard';
 }
 
+  if (hide.id === "hiddenButton") {
+    hide.id = " ";
+  }
+
   //https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple
 
-  axios.get(`${baseURL}amount=${triviaAmount.value}&category=${9}&difficulty=${difficulty}&type=${questionStyle}`)
+  axios.get(`${baseURL}amount=${triviaAmount.value}&category=${category.value}&difficulty=${difficulty}&type=${questionStyle}`)
   .then(trivResult => {
-    trivia.push(trivResult.data.results)
-    console.log(trivia)
-    triviaCard.innerHTML = `
-    <p>${JSON.stringify(trivResult.data.results[0].question)}</p>
-    `
+    trivia = trivResult.data.results
+    populateQuestion()
   })
 })
 // X - event listener on nextButton
 
 next.addEventListener('click', () => {
-  console.log(trivia[0][count])
+  console.log(trivia[count])
+  populateQuestion()
+})
+
+answer.addEventListener('click', () => {
+  console.log(trivia[count])
   triviaCard.innerHTML = `
-  <p>${trivia[0][count].question}</p>
+  <p>${trivia[count].correct_answer}</p>
   `
   count++
 })
 
-answer.addEventListener('click', () => {
-  console.log(trivia[0][count[0]])
+function populateQuestion(){
+  let possibleAnswers = shuffle()
+  console.log(trivia)
   triviaCard.innerHTML = `
-  <p>${trivia[0][count].correct_answer}</p>
+  <p>${trivia[count].question}</p>
   `
+  for (let i = 0; i < possibleAnswers.length; i++){
+    triviaCard.innerHTML += `<p>${possibleAnswers[i]}</p>`
+
+  }
+}
+
+// trivia[count].question create variable
+
+document.getElementById("playButton").addEventListener("click", () => {
+    let hidden = document.getElementsByClassName("hidden");
+    for( let i =0 ; i < hidden.length ; i++){
+        hidden[i];
+    }
 })
-
-
-// trivia[0][count].question create variable
 
 // Fisher-Yates shuffle:
 
-function shuffle(baseTrivia) {
-  let baseTrivia = [trivia[0][count]]
+function shuffle() {
+  let baseTrivia = [...trivia[count].incorrect_answers,trivia[count].correct_answer]
   var m = baseTrivia.length, t, i;
 
   // While there remain elements to shuffle…
@@ -89,45 +115,17 @@ function shuffle(baseTrivia) {
     baseTrivia[m] = baseTrivia[i];
     baseTrivia[i] = t;
   }
-
-  return baseTrivia;
   console.log(baseTrivia);
+  return baseTrivia;
 }
-// create array that randomizes ALL answers
-// addEventListener on answerButton that logs correct answer
-
-// let category = '';
-// const nine = document.querySelector('#nine');
-// const ten = document.querySelector('#ten');
-// const eleven = document.querySelector('#eleven');
-// const twelve = document.querySelector('#twelve');
-// const seventeen = document.querySelector('#seventeen');
-// const twentyOne = document.querySelector('#twentyOne');
-// const twentyTwo = document.querySelector('#twentyTwo');
-// const twentyThree = document.querySelector('#twentyThree');
-// const twentyFive = document.querySelector('#twentyFive');
-// const twentySeven = document.querySelector('#twentySeven');
-
-// if(nine.selected === true) {
-//   category = 'nine';
-// } else if(ten.selected === true) {
-//     category = 'ten';
-// } else if(eleven.selected === true) {
-//     category = 'eleven';
-// } else if(twelve.selected === true) {
-//     category = 'twelve';
-// } else if(seventeen.selected === true) {
-//     category = 'seventeen';
-// } else if(twentyOne.selected === true) {
-//     category = 'twentyOne';
-// } else if(twentyTwo.selected === true) {
-//     category = 'twentyTwo';
-// } else if(twentyThree.selected === true) {
-//     category = 'twentyThree';
-// } else if(twentyFive.selected === true) {
-//     category = 'twentyFive';
-// } else {
-//   category = 'twentySeven';
-// }
-
-// .
+// Toggle answerButton & nextButton
+$(document).ready(function() {
+  $("#answerButton").click(function () {
+    $("#nextButton").show()
+    $("#answerButton").hide()
+  });
+  $("#nextButton").click(function () {
+    $("#answerButton").show()
+    $("#nextButton").hide()
+  });
+});

@@ -60,6 +60,10 @@ p {
   color: white;
 }
 
+.hidden {
+  display: none;
+}
+
 #console-content  {
   display: flex;
   flex-direction: column;
@@ -91,17 +95,32 @@ p {
   background-image: linear-gradient(red , #3F080F);
 }
 
-#nextButton {
+#hiddenButton {
+  display: none;
+}
+
+#nextButton, #answerButton {
   background-image: linear-gradient(-65deg, #1D2A43, #1D2A43 28px, #92A7CC 25%, #243346);
+  width: 130px;
+  height: 40px;
   position: absolute;
   top: 114%;
-  left: 55%;
+  left: 43%;
+}
+
+#nextButton {
+  cursor: pointer;
+  display: none;
 }
 #answerButton {
+  cursor: pointer;
+}
+
+/* #answerButton {
   background-image: linear-gradient(-65deg, #1D2A43, #1D2A43 28px, #92A7CC 25%, #243346);
   position: absolute;
   top: 114%;
-  left: 30%;
+  left: 30%; */
 }
 
 #playButton:hover, #resetButton:hover, #nextButton:hover, #answerButton:hover {
