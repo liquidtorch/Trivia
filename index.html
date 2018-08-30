@@ -26,16 +26,16 @@
                   <label><h5>Categories:</h5></label><br>
                   <select name="Categories" id="topic">
                     <option value="Select" disabled selected>Pick One</option>
-                    <option value="9">General Knowledge</option>
-                    <option value="10">Entertainment: Books</option>
-                    <option value="11">Entertainment: Movies</option>
-                    <option value="12">Entertainment: Music</option>
-                    <option value="17">Science & Nature</option>
-                    <option value="21">Sports</option>
-                    <option value="22">Geography</option>
-                    <option value="23">History</option>
-                    <option value="25">Art</option>
-                    <option value="27">Animals</option>
+                    <option id="nine" value="9">General Knowledge</option>
+                    <option id="ten" value="10">Entertainment: Books</option>
+                    <option id="eleven" value="11">Entertainment: Movies</option>
+                    <option id="twelve" value="12">Entertainment: Music</option>
+                    <option id="seventeen" value="17">Science & Nature</option>
+                    <option id="twentyOne" value="21">Sports</option>
+                    <option id="twentyTwo" value="22">Geography</option>
+                    <option id="twentyThree" value="23">History</option>
+                    <option id="twentyFive" value="25">Art</option>
+                    <option id="twentySeven" value="27">Animals</option>
                   </select>
               </div><br>
               <label><h5>Choose difficulty</h5></label>
@@ -51,7 +51,7 @@
               </div><br>
               <div name="buttons" id="buttons">
                 <button class="btn btn-primary" type="submit" id="playButton">PLAY</button>
-                <input class="btn btn-primary" type="reset" value="RESET" id=resetButton>
+                <input class="btn btn-primary" type="reset" value="RESET" onClick="window.location.reload()" id=resetButton>
               </div>
             </div>
           </form>
@@ -62,7 +62,6 @@
             <br>
             <hr>
             <div id="trivia-card">
-              <p></p>
             </div>
             <button class="btn btn-primary" type="button" id="answerButton">Answer</button>
             <button class="btn btn-primary" type="button" id="nextButton">Next Question</button>
