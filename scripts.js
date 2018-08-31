@@ -24,6 +24,7 @@ const hard = document.querySelector('#hard');
 const next = document.querySelector('#nextButton');
 const answer = document.querySelector('#answerButton');
 let hide = document.getElementById("hiddenButton");
+const over = document.createElement('over');
 
 let trivia = [];
 let count = 0;
@@ -92,8 +93,9 @@ answer.addEventListener('click', () => {
   count++
 })
 function gameOver(){
-  // place game over text into innerHTML
-  triviaCard.innerHTML = `<p style="color:green">GAME OVER<br>Click Reset to play again</p>`
+  // place 'GAME OVER' text into innerHTML
+  triviaCard.innerHTML = `<p style="color:lime; text-align: center; font-size: 4em; display:block;">GAME OVER<br></p>
+  <p style="color:lime; text-align: center; display:block;">Click Reset to play again</p>`
   // disappear nextButton
   $("#answerButton").hide()
 
