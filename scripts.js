@@ -36,19 +36,19 @@ let formInputs = document.querySelector('#playButton');
 document.querySelector('#playButton').addEventListener('click', () => {
   event.preventDefault();
 
-if(multi.checked === true) {
-  questionStyle = 'multiple';
-} else {
-  questionStyle = 'boolean';
-}
+  if(multi.checked === true) {
+    questionStyle = 'multiple';
+  } else {
+    questionStyle = 'boolean';
+  }
 
-if(easy.checked === true) {
-  difficulty = 'easy';
-} else if(medium.checked === true) {
-    difficulty = 'medium';
-} else {
-  difficulty = 'hard';
-}
+  if(easy.checked === true) {
+    difficulty = 'easy';
+  } else if(medium.checked === true) {
+      difficulty = 'medium';
+  } else {
+    difficulty = 'hard';
+  }
 
   if (hide.id === "hiddenButton") {
     hide.id = " ";
@@ -62,20 +62,42 @@ if(easy.checked === true) {
     populateQuestion()
   })
 })
-// X - event listener on nextButton
+// X - event listener on nextButton & answerButton
+// X - Toggle answerButton & nextButton
 
 next.addEventListener('click', () => {
-  console.log(trivia[count])
-  populateQuestion()
+  answer.style.display = 'inline';
+  next.style.display = 'none'
+  // $("#answerButton").show()
+  // $("#nextButton").hide()
+  // if last answer displayed then log game over
+  if (trivia.length <= count) {
+    console.log("GAME OVER");
+    gameOver();
+  } else {
+    console.log(trivia[count])
+    populateQuestion()
+  }
 })
 
 answer.addEventListener('click', () => {
+  next.style.display = 'inline'
+  answer.style.display = 'none';
+  // $("#nextButton").show()
+  // $("#answerButton").hide()
   console.log(trivia[count])
   triviaCard.innerHTML = `
   <p>${trivia[count].correct_answer}</p>
   `
   count++
 })
+function gameOver(){
+  // place game over text into innerHTML
+  triviaCard.innerHTML = `<p style="color:green">GAME OVER<br>Click Reset to play again</p>`
+  // disappear nextButton
+  $("#answerButton").hide()
+
+}
 
 function populateQuestion(){
   let possibleAnswers = shuffle()
@@ -85,7 +107,6 @@ function populateQuestion(){
   `
   for (let i = 0; i < possibleAnswers.length; i++){
     triviaCard.innerHTML += `<p>${possibleAnswers[i]}</p>`
-
   }
 }
 
@@ -105,6 +126,7 @@ function shuffle() {
   var m = baseTrivia.length, t, i;
 
   // While there remain elements to shuffle…
+  // if (count < triviaAmount.value){
   while (m) {
 
     // Pick a remaining element…
@@ -117,15 +139,5 @@ function shuffle() {
   }
   console.log(baseTrivia);
   return baseTrivia;
-}
-// Toggle answerButton & nextButton
-$(document).ready(function() {
-  $("#answerButton").click(function () {
-    $("#nextButton").show()
-    $("#answerButton").hide()
-  });
-  $("#nextButton").click(function () {
-    $("#answerButton").show()
-    $("#nextButton").hide()
-  });
-});
+} // } else (triviaCard.innerHTML = `<p style="color=red">GAME OVER<br>Click Reset to play again</p>`)
+// }
